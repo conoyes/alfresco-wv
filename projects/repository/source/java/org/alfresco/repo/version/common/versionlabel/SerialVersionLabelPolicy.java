@@ -146,8 +146,16 @@ public class SerialVersionLabelPolicy implements CalculateVersionLabelPolicy
          */
         public void majorIncrement()
         {
-            this.majorRevisionNumber += 1;
-            this.minorRevisionNumber = 0;
+        	if (this.majorRevisionNumber == 0 && this.minorRevisionNumber == 0)
+        	{
+        		this.minorRevisionNumber = 1;
+        		return;
+        	}
+        	else
+        	{
+		        this.majorRevisionNumber += 1;
+		        this.minorRevisionNumber = 0;
+        	}
         }
         
         /**
